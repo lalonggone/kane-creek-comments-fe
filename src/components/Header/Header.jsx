@@ -6,6 +6,7 @@ function Header() {
     <>
       <header className="header">
         <h1>Kane Creek Comments</h1>
+        <div className="underline"></div>
       </header>
     </>
   )

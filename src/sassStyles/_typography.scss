@@ -1,0 +1,28 @@
+// typography eleent styles for h1 - h6, p, etc
+
+@import './mixins';
+
+@font-face {
+  font-family: 'Cascadia Code';
+  src: url('./cascadia_code.ttf') format('truetype');
+  //   font-weight: normal;
+  //   font-style: normal;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-weight: 200;
+}

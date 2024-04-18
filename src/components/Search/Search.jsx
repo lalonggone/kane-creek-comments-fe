@@ -11,24 +11,28 @@ function Search({ setSearchTerm, setFilter }) {
   }
 
   return (
-    <div>
-      <label htmlFor="search" className="visually-hidden">
-        Search
-      </label>
-      <input
-        type="text"
-        id="search"
-        name="search"
-        placeholder="search keywords"
-        onChange={handleSearch}
-      />
-      <label htmlFor="filter" className="visually-hidden">
-        Filter
-      </label>
-      <select id="filter" name="filter" onChange={handleFilter}>
-        <option value="all">All responses</option>
-        <option value="gc-residents">Moab residents</option>
-      </select>
+    <div className="search-bar-container">
+      <div className="search-bar">
+        <input
+          type="text"
+          id="search"
+          name="search"
+          placeholder="search keywords"
+          onChange={handleSearch}
+          aria-label="Search"
+        />
+        <div className="filter-container">
+          <select
+            id="filter"
+            name="filter"
+            onChange={handleFilter}
+            aria-label="Filter"
+          >
+            <option value="all">All responses</option>
+            <option value="gc-residents">Moab residents</option>
+          </select>
+        </div>
+      </div>
     </div>
   )
 }

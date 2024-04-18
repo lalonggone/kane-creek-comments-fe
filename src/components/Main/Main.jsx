@@ -9,7 +9,6 @@ function Main({ responses, setSearchTerm, setFilter }) {
   return (
     <>
       <main className="main">
-        <section>
           <Header />
           <Nav />
           <Search
@@ -17,7 +16,6 @@ function Main({ responses, setSearchTerm, setFilter }) {
             setFilter={setFilter}
           />
           <Responses responses={responses} />
-        </section>
       </main>
     </>
   )

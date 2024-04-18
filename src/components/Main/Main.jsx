@@ -1,33 +1,22 @@
 import React from 'react'
 import Header from '../Header/Header'
-import responses from '../../../cleanedResponses.json'
+import Nav from '../Nav/Nav'
+import Search from '../Search/Search'
+import Responses from '../Responses/Responses'
+import './Main.css'
 
-function Main() {
+function Main({ responses, setSearchTerm, setFilter }) {
   return (
     <>
       <main className="main">
         <section>
           <Header />
-          <div>
-            <label htmlFor="search">Search:</label>
-            <input type="text" id="search" name="search" />
-            <label htmlFor="filter">Filter:</label>
-            <select id="filter" name="filter">
-              <option value="all">All</option>
-              <option value="positive">Positive</option>
-              <option value="negative">Negative</option>
-            </select>
-          </div>
-          <div>
-            {responses.map((response, index) => {
-              return (
-                <div key={index}>
-                  <h3>{response.response}</h3>
-                  <p>{response.comment}</p>
-                </div>
-              )
-            })}
-          </div>
+          <Nav />
+          <Search
+            setSearchTerm={setSearchTerm}
+            setFilter={setFilter}
+          />
+          <Responses responses={responses} />
         </section>
       </main>
     </>

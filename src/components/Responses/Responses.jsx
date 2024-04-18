@@ -1,5 +1,6 @@
 import React from 'react'
 import './Responses.css'
+import { Link } from 'react-router-dom'
 
 function Responses({ responses }) {
 
@@ -15,10 +16,10 @@ const comments = first100.map(response => {
     <div className="responses">
       {first100.map((response, index) => {
         return (
-          <div key={index} className="response-card">
+          <Link to={`/response/${index}`} key={index} className="response-card">
             <h2>{response.name}</h2>
             <p>{comments[index]}</p>
-          </div>
+          </Link>
         )
       })}
     </div>

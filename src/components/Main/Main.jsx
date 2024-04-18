@@ -9,13 +9,9 @@ function Main({ responses, setSearchTerm, setFilter }) {
   return (
     <>
       <main className="main">
-          <Header />
-          <Nav />
-          <Search
-            setSearchTerm={setSearchTerm}
-            setFilter={setFilter}
-          />
-          <Responses responses={responses} />
+        <Header />
+        <Search setSearchTerm={setSearchTerm} setFilter={setFilter} />
+        <Responses responses={responses} />
       </main>
     </>
   )

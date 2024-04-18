@@ -1,5 +1,5 @@
 import React from 'react'
-// import responses from '../../../cleanedResponses.json'
+import './Responses.css'
 
 function Responses({ responses }) {
   return (

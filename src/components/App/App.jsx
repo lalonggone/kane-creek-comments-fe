@@ -9,13 +9,12 @@ function App() {
   const [responses, setResponses] = useState(allResponses)
   const [searchTerm, setSearchTerm] = useState('')
   const [filter, setFilter] = useState('all')
-  const [error, setError] = useState('')
 
   // this filter function is used to filter the responses based on the search term and the selected filter
   // it also filters out responses that do not have a comment
   // it also sorts them from newest to oldest based on the date they were submitted
 
-  const filterAnsSortResponses = (term, selectedFilter) => {
+  const filterAndSortResponses = (term, selectedFilter) => {
     const filtered = allResponses
       .filter((response) => {
         const termMatch = Object.values(response)
@@ -39,7 +38,7 @@ function App() {
   }
 
   useEffect(() => {
-    filterAnsSortResponses(searchTerm, filter)
+    filterAndSortResponses(searchTerm, filter)
   }, [searchTerm, filter])
 
   return (
@@ -51,7 +50,7 @@ function App() {
             responses={responses}
             setSearchTerm={setSearchTerm}
             setFilter={setFilter}
-            error={error}
+            // error={error}
           />
         }
       />
@@ -59,6 +58,7 @@ function App() {
         path="/response/:id"
         element={<ResponseDetails responses={responses} />}
       />
+      <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
   )
 }

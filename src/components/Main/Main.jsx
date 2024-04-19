@@ -10,7 +10,7 @@ function Main({ responses, setSearchTerm, setFilter }) {
     <>
       <main className="main">
         <Header />
-        <Search handleSearch={setSearchTerm} handleFilter={setFilter} />
+        <Search setSearchTerm={setSearchTerm} setFilter={setFilter} />
         <Responses responses={responses} />
       </main>
     </>

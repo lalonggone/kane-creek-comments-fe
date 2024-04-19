@@ -1,0 +1,21 @@
+.response-details-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.response-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding: 10px 20px 10px 20px;
+  border: 1px solid #b2b2b2;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  width: 500px;
+  height: 350px;
+  overflow: auto;
+}
+

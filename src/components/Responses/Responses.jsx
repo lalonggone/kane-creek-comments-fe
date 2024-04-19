@@ -1,6 +1,7 @@
 import React from 'react'
 import './Responses.css'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function Responses({ responses }) {
 
@@ -26,5 +27,15 @@ const comments = first100.map(response => {
     </>
   )
 }
+
+Responses.propTypes = {
+  responses: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      comment: PropTypes.string,
+    })
+  ).isRequired,
+}
+
 
 export default Responses

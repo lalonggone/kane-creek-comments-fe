@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './ResponseDetails.css'
+import PropTypes from 'prop-types'
 
 function ResponseDetails({ responses }) {
   const { id } = useParams()
@@ -28,6 +29,23 @@ function ResponseDetails({ responses }) {
         <p>{response.impacts_speculated} </p>
       </div>
     </div>
+  )
+}
+
+ResponseDetails.propTypes = {
+  responses: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      timestamp: PropTypes.string,
+      grand_county_resident: PropTypes.string,
+      concern_level: PropTypes.string,
+      public_response: PropTypes.string,
+      discovered_by: PropTypes.string,
+      volunteer: PropTypes.string,
+      comment: PropTypes.string,
+      email: PropTypes.string,
+      impacts_speculated: PropTypes.string,
+    })
   )
 }
 

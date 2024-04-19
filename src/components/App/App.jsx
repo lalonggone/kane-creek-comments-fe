@@ -9,11 +9,7 @@ function App() {
   const [responses, setResponses] = useState(allResponses)
   const [searchTerm, setSearchTerm] = useState('')
   const [filter, setFilter] = useState('all')
-
-  // this filter function is used to filter the responses based on the search term and the selected filter
-  // it also filters out responses that do not have a comment
-  // it also sorts them from newest to oldest based on the date they were submitted
-
+  
   const filterAndSortResponses = (term, selectedFilter) => {
     const filtered = allResponses
       .filter((response) => {

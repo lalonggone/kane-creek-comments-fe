@@ -1,10 +1,13 @@
+// currently not a being used, but will be in future iterations
+
+
 import React from 'react'
 import './Nav.css'
 
 function Nav() {
   return (
-      <nav>
-        <ul>
+      <nav className="nav-bar">
+        <ul className="nav-list">
           <li>
             <a href="/about">About</a>
           </li>

@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: black
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -16,6 +21,17 @@ body {
   box-sizing: border-box;
   height: 100vh;
   min-height: 100%;
+}
+
+button {
+  background: none; /* No background */
+  border: none; /* No border */
+  padding: 0; /* No padding */
+  margin: 0; /* No margin */
+  font-size: inherit; /* Inherit font-size from parent */
+  font-family: inherit; /* Inherit font-family from parent */
+  color: inherit; /* Inherit text color from parent */
+  cursor: pointer; /* Set the cursor to signify clickable item */
 }
 
 #root {

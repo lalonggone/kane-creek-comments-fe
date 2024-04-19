@@ -3,6 +3,7 @@ import './Search.css'
 import PropTypes from 'prop-types'
 
 function Search({ setSearchTerm, setFilter }) {
+  
   const handleSearch = (e) => {
     setSearchTerm(e.target.value)
   }
@@ -39,8 +40,8 @@ function Search({ setSearchTerm, setFilter }) {
 }
 
 Search.propTypes = {
-  handleSearch: PropTypes.func.isRequired,
-  handleFilter: PropTypes.func.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
+  setFilter: PropTypes.func.isRequired,
 };
 
 export default Search

@@ -1,1 +1,5 @@
-*.json filter=lfs diff=lfs merge=lfs -text
+# Track specific JSON files with LFS
+data*.json filter=lfs diff=lfs merge=lfs -text
+
+# Ensure package.json is not tracked by LFS
+package.json -filter -merge -diff

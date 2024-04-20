@@ -54,7 +54,7 @@ function App() {
         path="/response/:id"
         element={<ResponseDetails responses={responses} />}
       />
-      <Route path="*" element={<h1>Not Found</h1>} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   )
 }

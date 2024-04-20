@@ -1,5 +1,5 @@
 import React from 'react'
-import './Search.css'
+import './Search.scss'
 import PropTypes from 'prop-types'
 
 function Search({ setSearchTerm, setFilter }) {

@@ -1,12 +1,13 @@
 import React from 'react'
-import './NotFound.css'
+import './NotFound.scss'
 
 function NotFound() {
-
   return (
-    <div>
-      <h1>Sorry, this page doesn't exist</h1>
-      <button className="go-home">Go Home</button>
+    <div className="nf-and-btn-container">
+      <div className="nf-container">
+        <h1 className="not-found-title">Sorry, this page doesn't exist.</h1>
+        <button className="go-home">Go Home</button>
+      </div>
     </div>
   )
 }

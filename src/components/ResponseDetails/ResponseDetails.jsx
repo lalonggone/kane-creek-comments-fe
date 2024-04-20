@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import './ResponseDetails.css'
+import './ResponseDetails.scss'
 import PropTypes from 'prop-types'
 
 function ResponseDetails({ responses }) {

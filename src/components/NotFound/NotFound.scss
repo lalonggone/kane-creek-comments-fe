@@ -1,0 +1,30 @@
+@import '../../sassStyles/_mixins.scss';
+@import '../../sassStyles/_variables.scss';
+
+.nf-and-btn-container {
+  height: 200px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nf-container {
+  text-align: center;
+
+  .go-home {
+    position: absolute;
+    bottom: 0;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    padding: 5px 10px;
+    height: 35px;
+
+    @include smMinBreakPoint {
+      color: red;
+    }
+}
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import './Search.css'
+import './Search.scss'
 import PropTypes from 'prop-types'
 
 function Search({ setSearchTerm, setFilter }) {
@@ -30,7 +30,7 @@ function Search({ setSearchTerm, setFilter }) {
             onChange={handleFilter}
             aria-label="Filter"
           >
-            <option value="all">All responses</option>
+            <option value="all">all comments</option>
             <option value="gc-residents">Moab residents</option>
           </select>
         </div>

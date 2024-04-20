@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import allResponses from '../../../cleanedResponses.json'
 import Main from '../Main/Main'
+import NotFound from '../NotFound/NotFound'
 import ResponseDetails from '../ResponseDetails/ResponseDetails'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'

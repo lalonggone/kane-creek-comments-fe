@@ -3,7 +3,7 @@ describe('home page', () => {
   // there are no intercepts in this test because the data is static
   
   beforeEach(() => {
-    cy.visit('http://localhost:4173')
+    cy.visit('http://localhost:5173')
   })
 
   it('should display the header', () => {

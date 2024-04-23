@@ -1,7 +1,7 @@
 describe('response details', () => {
   
   beforeEach(() => {
-    cy.visit('http://localhost:4173')
+    cy.visit('http://localhost:5173')
   })
 
   it('should display the response details', () => {
@@ -14,6 +14,6 @@ describe('response details', () => {
   it ('should go back to the home page', () => {
     cy.get('[href^="/response/"]').first().click()
     cy.get('.go-back').should('be.visible').contains('Go Back').click()
-    cy.url().should('eq', 'http://localhost:4173/')
+    cy.url().should('eq', 'http://localhost:5173/')
   })
 })

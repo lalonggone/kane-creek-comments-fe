@@ -9,8 +9,6 @@ function ResponseDetails({ responses }) {
   const navigate = useNavigate()
 
   return (
-    // when the response is clicked, the details of the response will be displayed dynamically
-    // the details will include the timestamp, name, concern level, public response, discovered by, volunteer
 
     <div className="response-details-container">
       <button className="button go-back" onClick={() => navigate(-1)}>

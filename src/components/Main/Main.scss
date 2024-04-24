@@ -1,3 +1,30 @@
+@import '../../sassStyles/mixins.scss';
+
 .main {
-    padding: 20px;
+  padding: 20px;
+
+  @include smMinBreakPoint {
+    max-width: 576px;
+    margin: 0 auto;
+  }
+
+  @include mdMinBreakPoint {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @include lgMinBreakPoint {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  @include xlMinBreakPoint {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @include xxlMinBreakPoint {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }

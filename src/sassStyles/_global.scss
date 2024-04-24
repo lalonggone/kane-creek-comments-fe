@@ -1,4 +1,4 @@
-// partial that contains styling that overrides global elements 
+// partial that contains styling that overrides global elements
 // such as #root or body
 
 @import '../sassStyles/variables';
@@ -9,7 +9,7 @@
 
 a {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
 body {
@@ -24,14 +24,14 @@ body {
 }
 
 button {
-  background: none; /* No background */
-  border: none; /* No border */
-  padding: 0; /* No padding */
-  margin: 0; /* No margin */
-  font-size: inherit; /* Inherit font-size from parent */
-  font-family: inherit; /* Inherit font-family from parent */
-  color: inherit; /* Inherit text color from parent */
-  cursor: pointer; /* Set the cursor to signify clickable item */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
 }
 
 #root {

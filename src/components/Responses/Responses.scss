@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .responses {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -14,9 +16,14 @@
     border: 1px solid #b2b2b2;
     border-radius: 10px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    background-color: $secondaryLight2Color;
     width: 300px;
     height: 220px;
-    //line spacing
+
+    &:hover {
+      transform: scale(105%);
+      transition: transform 0.1s ease-in-out;
+    }
 
     h2 {
       font-size: 1.5rem;

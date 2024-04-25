@@ -2,6 +2,7 @@ import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './ResponseDetails.scss'
 import PropTypes from 'prop-types'
+import { ArrowLeftIcon } from '@heroicons/react/20/solid'
 
 function ResponseDetails({ responses }) {
   const { id } = useParams()
@@ -9,11 +10,13 @@ function ResponseDetails({ responses }) {
   const navigate = useNavigate()
 
   return (
-
     <div className="response-details-container">
-      <button className="button go-back" onClick={() => navigate(-1)}>
-        Go Back
-      </button>
+      <div className="go-back-container">
+        <ArrowLeftIcon className="arrow-left" />
+        <button className="button go-back" onClick={() => navigate(-1)}>
+          go back
+        </button>
+      </div>
       <div className="response-details">
         <h2 className="response-name">{response.name}</h2>
         <p>{response.timestamp}</p>
@@ -44,7 +47,7 @@ ResponseDetails.propTypes = {
       email: PropTypes.string,
       impacts_speculated: PropTypes.string,
     })
-  )
+  ),
 }
 
 export default ResponseDetails

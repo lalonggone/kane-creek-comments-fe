@@ -23,8 +23,7 @@ function ResponseDetails({ responses }) {
   }
 
   const formatImpacts = () => {
-    //line break after a comma in response
-    // turn every line into a list item
+
     const impacts = response.impacts_speculated.split(',')
     return impacts.map((impact, index) => {
       return (

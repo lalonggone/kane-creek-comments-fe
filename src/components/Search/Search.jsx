@@ -25,7 +25,6 @@ function Search({ setSearchTerm, setFilter }) {
         />
         <div className="filter-container">
           <select
-            className="custom-select"
             id="filter"
             name="filter"
             onChange={handleFilter}

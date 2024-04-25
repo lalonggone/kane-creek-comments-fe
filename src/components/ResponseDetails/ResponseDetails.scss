@@ -14,12 +14,22 @@
     align-items: center;
     width: 100%;
 
+    
     .go-back {
       padding: 10px;
+
+      @include mdMaxBreakPoint {
+        padding: 8px;
+        font-size: .8rem;
+      }
     }
     .arrow-left {
       height: 25px;
       width: 25px;
+
+      @include mdMaxBreakPoint {
+        height: 16px;
+      }
     }
   
   }
@@ -37,10 +47,36 @@
   height: 350px;
   overflow: auto;
 
-  @include mdMaxBreakPoint {
-    max-width: 300px;
-    height: 450px;
+  
+
+  .name-date-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px 10px 5px;
+    border-bottom: 1px solid #000;
+    
+    .response-date {
+      margin-left: 15px;
+      min-width: 90px;
+    }
+  }
+  
+  
+  .mini-deets {
+    line-height: 1.5;
+    padding: 15px;
+  }
+  
+  .mini-deets-label {
+    font-weight: 400;
   }
 
+  @include mdMaxBreakPoint {
+    max-width: 300px;
+    max-height: 350px;
+    font-size: .8rem;
+
+  }
 }
 

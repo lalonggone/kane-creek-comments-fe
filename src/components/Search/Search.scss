@@ -1,5 +1,5 @@
-// @import '../../sassStyles/_variables.scss';
-@import '../../sassStyles/_mixins.scss';
+@import '../../styles/_mixins.scss';
+@import '../../styles/_variables.scss';
 
 .search-bar-container {
   display: flex;
@@ -15,24 +15,29 @@
   min-width: 250px;
   display: flex;
   align-items: center;
-  background-color: #fff;
+  background-color: $secondaryLight2Color;
   border: 1px solid #ccc;
   border-radius: 7px;
   padding: 5px 10px;
   width: 45%;
   height: 60px; 
+  
+  @include lgMaxBreakPoint {
+    height: 50px;
+  }
 
   input, select {
     font-family: 'Cascadia Code', monospace;
     font-size: 16px;
     border: none;
     padding: 10px;
-    background-color: #ededed;
     flex-grow: 1;
     border-radius: 0;
+    background-color: $secondaryLight2Color;
     
     @include lgMaxBreakPoint {
       font-size: 14px;
+      height: 40px;
     }
     
     &:focus {
@@ -42,8 +47,8 @@
   
   input {
     min-width: 100px;
-    background-color: white;
     border-radius: 4px 0 0 4px;
+    border-right: 1px solid #ccc;
 
   }
   

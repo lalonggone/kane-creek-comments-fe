@@ -9,8 +9,12 @@ function ResponseDetails({ responses }) {
   const response = responses[id]
   const navigate = useNavigate()
 
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' }
+    const date = new Date(dateString)
+    return date.toLocaleDateString(undefined, options)
+  }
   const formatResident = () => {
-    console.log(response.grand_county_resident)
     if (response.grand_county_resident === 'Yes, I am a resident') {
       return 'Grand County Resident'
     } else {
@@ -18,10 +22,16 @@ function ResponseDetails({ responses }) {
     }
   }
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' }
-    const date = new Date(dateString)
-    return date.toLocaleDateString(undefined, options)
+  const formatImpacts = () => {
+
+    const impacts = response.impacts_speculated.split(',')
+    return impacts.map((impact, index) => {
+      return (
+        <li key={index} className="impact">
+          {impact}
+        </li>
+      )
+    })
   }
 
   return (
@@ -52,8 +62,13 @@ function ResponseDetails({ responses }) {
             {response.discovered_by}
           </p>
         </div>
-        <p>{response.comment}</p>
-        <p>{response.impacts_speculated} </p>
+        <p className="response-comment">{response.comment}</p>
+        <p className="response-impacts">
+          <span className="mini-deets-label">
+            Concerned about the following impacts:
+          </span>{' '}
+          {formatImpacts()}
+        </p>
       </div>
     </div>
   )

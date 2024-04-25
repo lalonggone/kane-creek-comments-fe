@@ -1,4 +1,4 @@
-@import "../../sassStyles/mixins.scss";
+@import '../../styles/mixins.scss';
 
 .response-details-container {
   display: flex;
@@ -7,76 +7,97 @@
   align-items: center;
   height: 100%;
 
-
   .go-back-container {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
 
-    
     .go-back {
       padding: 10px;
 
-      @include mdMaxBreakPoint {
+      @include smMaxBreakPoint {
         padding: 8px;
-        font-size: .8rem;
+        font-size: 0.8rem;
       }
     }
     .arrow-left {
       height: 25px;
       width: 25px;
 
-      @include mdMaxBreakPoint {
+      @include smMaxBreakPoint {
         height: 16px;
       }
     }
-  
-  }
-}
 
-.response-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  padding: 10px 20px 10px 20px;
-  border: 1px solid #b2b2b2;
-  border-radius: 10px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-  width: 500px;
-  height: 350px;
-  overflow: auto;
+    &:hover * {
+      transform: scale(1.1) translateY(-10%)
+    }
 
-  
-
-  .name-date-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 5px 10px 5px;
-    border-bottom: 1px solid #000;
-    
-    .response-date {
-      margin-left: 15px;
-      min-width: 90px;
+    * {
+      transition: transform 0.3s ease; 
     }
   }
   
+  .response-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 25px 40px;
+    border: 1px solid #b2b2b2;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    width: 700px;
+    height: 520px;
+    overflow: auto;
+    background-color: $secondaryLight2Color;
   
-  .mini-deets {
-    line-height: 1.5;
-    padding: 15px;
-  }
+    @include mdMaxBreakPoint {
+      width: 500px;
+      height: 350px;
+    }
   
-  .mini-deets-label {
-    font-weight: 400;
-  }
-
-  @include mdMaxBreakPoint {
-    max-width: 300px;
-    max-height: 350px;
-    font-size: .8rem;
-
+    @include smMaxBreakPoint {
+      max-width: 300px;
+      max-height: 350px;
+      font-size: 0.9rem;
+      padding: 10px 15px;
+    }
+  
+    .name-date-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 5px 10px 5px;
+      border-bottom: 1px solid #000;
+  
+      @include smMaxBreakPoint {
+        display: flex;
+        flex-direction: column;
+        // align-items: flex-start;
+      }
+      .response-date {
+        margin: 10px 0 0 0 ;
+        min-width: 90px;
+      }
+    }
+  
+    .mini-deets {
+      padding: 15px;
+    }
+  
+    .mini-deets-label {
+      line-height: 1.3;
+      font-weight: 400;
+    }
+  
+    .response-comment {
+      line-height: 1.5;
+    }
+  
+    .response-impacts {
+      padding: 20px;
+    }
   }
 }
 

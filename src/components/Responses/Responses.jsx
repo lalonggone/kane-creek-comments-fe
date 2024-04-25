@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 function Responses({ responses }) {
+
   const first100 = responses.slice(0, 100)
+
   const comments = first100.map((response) => {
     const comment = response.comment.substring(0, 120)
     return response.comment.length > 200 ? comment + '...' : comment

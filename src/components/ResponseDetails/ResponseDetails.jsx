@@ -9,6 +9,21 @@ function ResponseDetails({ responses }) {
   const response = responses[id]
   const navigate = useNavigate()
 
+  const formatResident = () => {
+    console.log(response.grand_county_resident)
+    if (response.grand_county_resident === 'Yes, I am a resident') {
+      return 'Grand County Resident'
+    } else {
+      return 'Grand County Visitor'
+    }
+  }
+
+  const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' }
+    const date = new Date(dateString)
+    return date.toLocaleDateString(undefined, options)
+  }
+
   return (
     <div className="response-details-container">
       <div className="go-back-container">
@@ -18,15 +33,26 @@ function ResponseDetails({ responses }) {
         </button>
       </div>
       <div className="response-details">
-        <h2 className="response-name">{response.name}</h2>
-        <p>{response.timestamp}</p>
-        <p>{response.grand_county_resident}</p>
-        <p>{response.concern_level}</p>
-        <p>{response.public_response}</p>
-        <p>{response.discovered_by}</p>
-        <p>{response.volunteer}</p>
+        <div className="name-date-container">
+          <h2 className="response-name">{response.name}</h2>
+          <p className="response-date">{formatDate(response.timestamp)}</p>
+        </div>
+        <div className="mini-deets">
+          <p className="mini-deets-label">{formatResident()}</p>
+          <p>
+            <span className="mini-deets-label">Level of concern:</span>{' '}
+            {response.concern_level}
+          </p>
+          <p>
+            <span className="mini-deets-label">Open to volunteer:</span>{' '}
+            {response.volunteer}
+          </p>
+          <p>
+            <span className="mini-deets-label">Discovered by:</span>{' '}
+            {response.discovered_by}
+          </p>
+        </div>
         <p>{response.comment}</p>
-        <p>{response.email}</p>
         <p>{response.impacts_speculated} </p>
       </div>
     </div>

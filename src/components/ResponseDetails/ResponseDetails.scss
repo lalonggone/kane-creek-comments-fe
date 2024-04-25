@@ -6,6 +6,23 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+
+
+  .go-back-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .go-back {
+      padding: 10px;
+    }
+    .arrow-left {
+      height: 25px;
+      width: 25px;
+    }
+  
+  }
 }
 
 .response-details {
@@ -24,5 +41,6 @@
     max-width: 300px;
     height: 450px;
   }
+
 }
 

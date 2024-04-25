@@ -2,8 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './components/App/App'
 import { BrowserRouter } from 'react-router-dom'
-import './sassStyles/_global.scss'
-import './sassStyles/_typography.scss'
+import './styles/_global.scss'
+import './styles/_typography.scss'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>

@@ -1,26 +1,23 @@
-import React from 'react'
-import './Responses.scss'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import React from 'react';
+import './Responses.scss';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function Responses({ responses }) {
-
-  const first100 = responses.slice(0, 100)
-
-  const comments = first100.map((response) => {
-    const comment = response.comment.substring(0, 120)
-    return response.comment.length > 200 ? comment + '...' : comment
-  })
+  const comments = responses.map((response) => {
+    const comment = response.comment ? response.comment.substring(0, 120) : '';
+    return response.comment && response.comment.length > 200 ? comment + '...' : comment;
+  });
 
   return (
     <>
       {responses.length === 0 ? (
         <div className="no-comments-found">
-          <p>no comments found</p>
+          <p>No comments found</p>
         </div>
       ) : (
         <div className="responses">
-          {first100.map((response, index) => (
+          {responses.map((response, index) => (
             <Link
               to={`/response/${index}`}
               key={index}
@@ -33,16 +30,16 @@ function Responses({ responses }) {
         </div>
       )}
     </>
-  )
+  );
 }
 
-// Responses.propTypes = {
-//   responses: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       name: PropTypes.string,
-//       comment: PropTypes.string,
-//     })
-//   ).isRequired,
-// }
+Responses.propTypes = {
+  responses: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      comment: PropTypes.string,
+    })
+  ).isRequired,
+};
 
-export default Responses
+export default Responses;

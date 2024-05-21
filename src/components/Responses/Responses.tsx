@@ -1,16 +1,20 @@
 import React, { useState } from 'react'
 import './Responses.scss'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
+import { Response } from '../../types/Response'
 
-const Responses = ({ responses }) => {
-  const [currentPage, setCurrentPage] = useState(1)
+interface ResponsesProps {
+  responses: Response[]
+}
+
+const Responses = ({ responses }: ResponsesProps) => {
+  const [currentPage, setCurrentPage] = useState<number>(1)
   const responsesPerPage = 10
 
-  
+  // Calculate the total number of pages
   const totalPages = Math.ceil(responses.length / responsesPerPage)
 
-  
+  // Get the responses for the current page
   const indexOfLastResponse = currentPage * responsesPerPage
   const indexOfFirstResponse = indexOfLastResponse - responsesPerPage
   const currentResponses = responses.slice(
@@ -25,13 +29,13 @@ const Responses = ({ responses }) => {
       : comment
   })
 
-  
-  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+  // Handler to change the page
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
 
-  
+  // Helper to create pagination range
   const createPaginationRange = () => {
-    const delta = 1 
-    const range = []
+    const delta = 2 // Number of pages to show on each side of the current page
+    const range: (number | string)[] = []
     for (
       let i = Math.max(2, currentPage - delta);
       i <= Math.min(totalPages - 1, currentPage + delta);
@@ -62,14 +66,14 @@ const Responses = ({ responses }) => {
         </div>
       ) : (
         <div className="responses">
-          {currentResponses.map((response, index) => (
+          {currentResponses.map((response) => (
             <Link
               to={`/response/${response.id}`}
-              key={index}
+              key={response.id}
               className="response-card"
             >
               <h2>{response.name}</h2>
-              <p>{comments[index]}</p>
+              <p>{comments[currentResponses.indexOf(response)]}</p>
             </Link>
           ))}
         </div>
@@ -84,7 +88,7 @@ const Responses = ({ responses }) => {
         {paginationRange.map((page, index) => (
           <button
             key={index}
-            onClick={() => paginate(page)}
+            onClick={() => paginate(page as number)}
             className={page === currentPage ? 'active' : ''}
             disabled={page === '...'}
           >
@@ -100,16 +104,6 @@ const Responses = ({ responses }) => {
       </div>
     </>
   )
-}
-
-Responses.propTypes = {
-  responses: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      comment: PropTypes.string,
-    })
-  ).isRequired,
 }
 
 export default Responses

@@ -36,13 +36,13 @@ function Responses({ responses }) {
   )
 }
 
-Responses.propTypes = {
-  responses: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      comment: PropTypes.string,
-    })
-  ).isRequired,
-}
+// Responses.propTypes = {
+//   responses: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       name: PropTypes.string,
+//       comment: PropTypes.string,
+//     })
+//   ).isRequired,
+// }
 
 export default Responses

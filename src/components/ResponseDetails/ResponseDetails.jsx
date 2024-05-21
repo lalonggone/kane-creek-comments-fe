@@ -80,7 +80,7 @@ ResponseDetails.propTypes = {
       name: PropTypes.string,
       timestamp: PropTypes.string,
       grand_county_resident: PropTypes.string,
-      concern_level: PropTypes.string,
+      concern_level: PropTypes.number,
       public_response: PropTypes.string,
       discovered_by: PropTypes.string,
       volunteer: PropTypes.string,

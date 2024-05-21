@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Responses.scss';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-function Responses({ responses }) {
-  const comments = responses.map((response) => {
+const Responses = ({ responses }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const responsesPerPage = 10;
+
+  const totalPages = Math.ceil(responses.length / responsesPerPage);
+
+  const indexOfLastResponse = currentPage * responsesPerPage;
+  const indexOfFirstResponse = indexOfLastResponse - responsesPerPage;
+  const currentResponses = responses.slice(indexOfFirstResponse, indexOfLastResponse);
+
+  const comments = currentResponses.map((response) => {
     const comment = response.comment ? response.comment.substring(0, 120) : '';
     return response.comment && response.comment.length > 200 ? comment + '...' : comment;
   });
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <>
@@ -17,7 +28,7 @@ function Responses({ responses }) {
         </div>
       ) : (
         <div className="responses">
-          {responses.map((response, index) => (
+          {currentResponses.map((response, index) => (
             <Link
               to={`/response/${index}`}
               key={index}
@@ -29,6 +40,13 @@ function Responses({ responses }) {
           ))}
         </div>
       )}
+      <div className="pagination">
+        {[...Array(totalPages).keys()].map(number => (
+          <button key={number + 1} onClick={() => paginate(number + 1)} className={number + 1 === currentPage ? 'active' : ''}>
+            {number + 1}
+          </button>
+        ))}
+      </div>
     </>
   );
 }

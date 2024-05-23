@@ -1,37 +1,48 @@
 import React from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import './ResponseDetails.scss'
-import PropTypes from 'prop-types'
 import { ArrowLeftIcon } from '@heroicons/react/20/solid'
+import { Response } from '../../types/Response'
 
-function ResponseDetails({ responses }) {
-  const { id } = useParams()
-  const response = responses[id]
+interface ResponseDetailsProps {
+  responses: Response[]
+}
+
+const ResponseDetails = ({ responses }: ResponseDetailsProps) => {
+  const { id } = useParams<{ id: string }>()
   const navigate = useNavigate()
 
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' }
+  const response = responses.find(
+    (response) => response.id === parseInt(id!, 10)
+  )
+
+  if (!response) {
+    return <p>Response not found</p>
+  }
+
+  const formatDate = (dateString: string) => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    }
     const date = new Date(dateString)
     return date.toLocaleDateString(undefined, options)
   }
+
   const formatResident = () => {
-    if (response.grand_county_resident === 'Yes, I am a resident') {
-      return 'Grand County Resident'
-    } else {
-      return 'Grand County Visitor'
-    }
+    return response.grand_county_resident === 'Yes, I am a resident'
+      ? 'Grand County Resident'
+      : 'Grand County Visitor'
   }
 
   const formatImpacts = () => {
-
     const impacts = response.impacts_speculated.split(',')
-    return impacts.map((impact, index) => {
-      return (
-        <li key={index} className="impact">
-          {impact}
-        </li>
-      )
-    })
+    return impacts.map((impact, index) => (
+      <li key={index} className="impact">
+        {impact}
+      </li>
+    ))
   }
 
   return (
@@ -63,32 +74,15 @@ function ResponseDetails({ responses }) {
           </p>
         </div>
         <p className="response-comment">{response.comment}</p>
-        <p className="response-impacts">
+        <div className="response-impacts">
           <span className="mini-deets-label">
             Concerned about the following impacts:
           </span>{' '}
-          {formatImpacts()}
-        </p>
+          <ul>{formatImpacts()}</ul>
+        </div>
       </div>
     </div>
   )
-}
-
-ResponseDetails.propTypes = {
-  responses: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      timestamp: PropTypes.string,
-      grand_county_resident: PropTypes.string,
-      concern_level: PropTypes.number,
-      public_response: PropTypes.string,
-      discovered_by: PropTypes.string,
-      volunteer: PropTypes.string,
-      comment: PropTypes.string,
-      email: PropTypes.string,
-      impacts_speculated: PropTypes.string,
-    })
-  ),
 }
 
 export default ResponseDetails

@@ -1,66 +1,69 @@
-import React, { useState } from 'react'
-import './Responses.scss'
-import { Link } from 'react-router-dom'
-import { Response } from '../../types/Response'
+import React, { useState } from 'react';
+import './Responses.scss';
+import { Link } from 'react-router-dom';
+import { Response } from '../../types/Response';
 
 interface ResponsesProps {
-  responses: Response[]
+  responses: Response[];
 }
 
 const Responses = ({ responses }: ResponsesProps) => {
-  const [currentPage, setCurrentPage] = useState<number>(1)
-  const responsesPerPage = 10
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const responsesPerPage = 12;
+
+  // Filter responses that have comments
+  const responsesWithComments = responses.filter(response => response.comment && response.comment.trim() !== '');
 
   // Calculate the total number of pages
-  const totalPages = Math.ceil(responses.length / responsesPerPage)
+  const totalPages = Math.ceil(responsesWithComments.length / responsesPerPage);
 
   // Get the responses for the current page
-  const indexOfLastResponse = currentPage * responsesPerPage
-  const indexOfFirstResponse = indexOfLastResponse - responsesPerPage
-  const currentResponses = responses.slice(
+  const indexOfLastResponse = currentPage * responsesPerPage;
+  const indexOfFirstResponse = indexOfLastResponse - responsesPerPage;
+  const currentResponses = responsesWithComments.slice(
     indexOfFirstResponse,
     indexOfLastResponse
-  )
+  );
 
   const comments = currentResponses.map((response) => {
-    const comment = response.comment ? response.comment.substring(0, 120) : ''
+    const comment = response.comment ? response.comment.substring(0, 120) : '';
     return response.comment && response.comment.length > 200
       ? comment + '...'
-      : comment
-  })
+      : comment;
+  });
 
   // Handler to change the page
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber)
+  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   // Helper to create pagination range
   const createPaginationRange = () => {
-    const delta = 2 // Number of pages to show on each side of the current page
-    const range: (number | string)[] = []
+    const delta = 2; // Number of pages to show on each side of the current page
+    const range: (number | string)[] = [];
     for (
       let i = Math.max(2, currentPage - delta);
       i <= Math.min(totalPages - 1, currentPage + delta);
       i++
     ) {
-      range.push(i)
+      range.push(i);
     }
     if (currentPage - delta > 2) {
-      range.unshift('...')
+      range.unshift('...');
     }
     if (currentPage + delta < totalPages - 1) {
-      range.push('...')
+      range.push('...');
     }
-    range.unshift(1)
+    range.unshift(1);
     if (totalPages > 1) {
-      range.push(totalPages)
+      range.push(totalPages);
     }
-    return range
-  }
+    return range;
+  };
 
-  const paginationRange = createPaginationRange()
+  const paginationRange = createPaginationRange();
 
   return (
     <>
-      {responses.length === 0 ? (
+      {responsesWithComments.length === 0 ? (
         <div className="no-comments-found">
           <p>No comments found</p>
         </div>
@@ -103,7 +106,7 @@ const Responses = ({ responses }: ResponsesProps) => {
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Responses
+export default Responses;

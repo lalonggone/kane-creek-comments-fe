@@ -5,6 +5,9 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    historyApiFallback: true  // Ensure this is set correctly
+    historyApiFallback: true
+  },
+  define: {
+    'process.env': process.env
   }
 });

@@ -1,18 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Responses.scss';
 import { Link } from 'react-router-dom';
 import { Response } from '../../types/Response';
+import { fetchResponses } from '../../api';
 
-interface ResponsesProps {
-  responses: Response[];
-}
-
-const Responses = ({ responses }: ResponsesProps) => {
+const Responses = () => {
+  const [responses, setResponses] = useState<Response[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const responsesPerPage = 12;
 
+  useEffect(() => {
+    const getResponses = async () => {
+      try {
+        const data = await fetchResponses();
+        setResponses(data);
+      } catch (error) {
+        console.error('Failed to fetch responses.', error);
+        setError('Failed to fetch responses.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getResponses();
+  }, []);
+
   // Filter responses that have comments
-  const responsesWithComments = responses.filter(response => response.comment && response.comment.trim() !== '');
+  const responsesWithComments = responses.filter(response => response.response && response.response.trim() !== '');
 
   // Calculate the total number of pages
   const totalPages = Math.ceil(responsesWithComments.length / responsesPerPage);
@@ -26,8 +42,8 @@ const Responses = ({ responses }: ResponsesProps) => {
   );
 
   const comments = currentResponses.map((response) => {
-    const comment = response.comment ? response.comment.substring(0, 120) : '';
-    return response.comment && response.comment.length > 200
+    const comment = response.response ? response.response.substring(0, 120) : '';
+    return response.response && response.response.length > 200
       ? comment + '...'
       : comment;
   });
@@ -60,6 +76,14 @@ const Responses = ({ responses }: ResponsesProps) => {
   };
 
   const paginationRange = createPaginationRange();
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <>

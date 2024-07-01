@@ -7,7 +7,7 @@ export interface Response {
   phone: string
   address: string
   concern_level: number
-  comment: string
+  response: string
   impacts_speculated: string
   public_response: string
   discovered_by: string

@@ -17,7 +17,7 @@ const ResponseDetails = ({ responses }: ResponseDetailsProps) => {
   )
 
   if (!response) {
-    return <p>Response not found</p>
+    return <p className="not-found">comment not found</p>
   }
 
   const formatDate = (dateString: string) => {
@@ -73,7 +73,7 @@ const ResponseDetails = ({ responses }: ResponseDetailsProps) => {
             {response.discovered_by}
           </p>
         </div>
-        <p className="response-comment">{response.comment}</p>
+        <p className="response-comment">{response.response}</p>
         <div className="response-impacts">
           <span className="mini-deets-label">
             Concerned about the following impacts:

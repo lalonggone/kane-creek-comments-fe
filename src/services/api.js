@@ -7,7 +7,9 @@ const getResponses = async () => {
       throw new Error('Network response was not ok ' + response.statusText);
     }
     const data = await response.json();
-    return data;
+
+    const dataWithIds = data.map((item, index) => ({ ...item, id: index + 1 }));
+    return dataWithIds;
   } catch (error) {
     console.error('Error fetching responses:', error);
     throw error;

@@ -40,7 +40,7 @@ const App = () => {
 
         return termMatch && filterMatch
       })
-      .filter((response) => response.comment !== '')
+      .filter((response) => response.response !== '')
 
     const sorted = filtered.sort(
       (a, b) =>

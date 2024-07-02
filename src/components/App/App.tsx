@@ -1,30 +1,34 @@
-import React, { useState, useEffect } from 'react'
-import getResponses from '../../services/api'
-import Main from '../Main/Main'
-import NotFound from '../NotFound/NotFound'
-import ResponseDetails from '../ResponseDetails/ResponseDetails'
-import './App.css'
-import { Routes, Route } from 'react-router-dom'
-import { Response } from '../../types/Response'
+import React, { useState, useEffect } from 'react';
+import getResponses from '../../services/api';
+import Main from '../Main/Main';
+import NotFound from '../NotFound/NotFound';
+import ResponseDetails from '../ResponseDetails/ResponseDetails';
+import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { Response } from '../../types/Response';
 
 const App = () => {
-  const [responses, setResponses] = useState<Response[]>([])
-  const [filteredResponses, setFilteredResponses] = useState<Response[]>([])
-  const [searchTerm, setSearchTerm] = useState<string>('')
-  const [filter, setFilter] = useState<string>('all')
-  const [error, setError] = useState<string | null>(null)
+  const [responses, setResponses] = useState<Response[]>([]);
+  const [filteredResponses, setFilteredResponses] = useState<Response[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+  const [filter, setFilter] = useState<string>('all');
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     getResponses()
       .then((data) => {
-        setResponses(data)
-        setFilteredResponses(data)
+        setResponses(data);
+        setFilteredResponses(data);
       })
       .catch((error) => {
-        setError(error.message)
-        console.error('Error fetching responses:', error)
+        setError(error.message);
+        console.error('Error fetching responses:', error);
       })
-  }, [])
+      .finally(() => {
+        setIsLoading(false);
+      });
+  }, []);
 
   const filterAndSortResponses = (term: string, selectedFilter: string) => {
     const filtered = responses
@@ -32,27 +36,31 @@ const App = () => {
         const termMatch = Object.values(response)
           .join(' ')
           .toLowerCase()
-          .includes(term.toLowerCase())
+          .includes(term.toLowerCase());
 
         const filterMatch =
           selectedFilter === 'all' ||
-          response.grand_county_resident === 'Yes, I am a resident'
+          response.grand_county_resident === 'Yes, I am a resident';
 
-        return termMatch && filterMatch
+        return termMatch && filterMatch;
       })
-      .filter((response) => response.response !== '')
+      .filter((response) => response.response !== '');
 
     const sorted = filtered.sort(
       (a, b) =>
-        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-    )
+        new Date(b.submitted_at).getTime() - new Date(a.submitted_at).getTime()
+    );
 
-    setFilteredResponses(sorted)
-  }
+    setFilteredResponses(sorted);
+  };
 
   useEffect(() => {
-    filterAndSortResponses(searchTerm, filter)
-  }, [searchTerm, filter, responses])
+    filterAndSortResponses(searchTerm, filter);
+  }, [searchTerm, filter, responses]);
+
+  if (isLoading) {
+    return <div className="loading">Loading...(this may take a minute)</div>;
+  }
 
   return (
     <Routes>
@@ -73,7 +81,7 @@ const App = () => {
       />
       <Route path="*" element={<NotFound />} />
     </Routes>
-  )
-}
+  );
+};
 
-export default App
+export default App;

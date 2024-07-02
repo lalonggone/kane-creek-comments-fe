@@ -2,38 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './Responses.scss';
 import { Link } from 'react-router-dom';
 import { Response } from '../../types/Response';
-import getResponses from '../../services/api';
 
-const Responses = () => {
-  const [responses, setResponses] = useState<Response[]>([]);
+interface ResponsesProps {
+  responses: Response[]
+}
+
+const Responses = ({ responses }: ResponsesProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
   const responsesPerPage = 12;
 
-  useEffect(() => {
-    const fetchResponses = async () => {
-      try {
-        const data = await getResponses();
-        setResponses(data);
-      } catch (error) {
-        console.error('Failed to fetch responses.', error);
-        setError('Failed to fetch responses.');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchResponses();
-  }, []);
-
-  // Filter responses that have comments
   const responsesWithComments = responses.filter(response => response.response && response.response.trim() !== '');
 
-  // Calculate the total number of pages
   const totalPages = Math.ceil(responsesWithComments.length / responsesPerPage);
 
-  // Get the responses for the current page
   const indexOfLastResponse = currentPage * responsesPerPage;
   const indexOfFirstResponse = indexOfLastResponse - responsesPerPage;
   const currentResponses = responsesWithComments.slice(
@@ -48,12 +29,10 @@ const Responses = () => {
       : comment;
   });
 
-  // Handler to change the page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  // Helper to create pagination range
   const createPaginationRange = () => {
-    const delta = 2; // Number of pages to show on each side of the current page
+    const delta = 2; 
     const range: (number | string)[] = [];
     for (
       let i = Math.max(2, currentPage - delta);
@@ -76,14 +55,6 @@ const Responses = () => {
   };
 
   const paginationRange = createPaginationRange();
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
 
   return (
     <>

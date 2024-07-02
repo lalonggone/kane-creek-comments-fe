@@ -1,6 +1,6 @@
 export interface Response {
   id: number
-  timestamp: string
+  submitted_at: string
   grand_county_resident: string
   name: string
   email: string

@@ -56,7 +56,7 @@ const ResponseDetails = ({ responses }: ResponseDetailsProps) => {
       <div className="response-details">
         <div className="name-date-container">
           <h2 className="response-name">{response.name}</h2>
-          <p className="response-date">{formatDate(response.timestamp)}</p>
+          <p className="response-date">{formatDate(response.submitted_at)}</p>
         </div>
         <div className="mini-deets">
           <p className="mini-deets-label">{formatResident()}</p>
@@ -68,10 +68,7 @@ const ResponseDetails = ({ responses }: ResponseDetailsProps) => {
             <span className="mini-deets-label">Open to volunteer:</span>{' '}
             {response.volunteer}
           </p>
-          <p>
-            <span className="mini-deets-label">Discovered by:</span>{' '}
-            {response.discovered_by}
-          </p>
+
         </div>
         <p className="response-comment">{response.response}</p>
         <div className="response-impacts">

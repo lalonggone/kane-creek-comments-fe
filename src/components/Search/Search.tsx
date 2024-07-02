@@ -1,15 +1,16 @@
 import React from 'react'
 import './Search.scss'
-import PropTypes from 'prop-types'
 
 function Search({ setSearchTerm, setFilter }) {
   
   const handleSearch = (e) => {
     setSearchTerm(e.target.value)
+    console.log('search term:', e.target.value)
   }
 
   const handleFilter = (e) => {
     setFilter(e.target.value)
+    console.log('filter:', e.target.value)
   }
 
   return (
@@ -38,10 +39,5 @@ function Search({ setSearchTerm, setFilter }) {
     </div>
   )
 }
-
-Search.propTypes = {
-  setSearchTerm: PropTypes.func.isRequired,
-  setFilter: PropTypes.func.isRequired,
-};
 
 export default Search

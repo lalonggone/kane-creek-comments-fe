@@ -1,0 +1,23 @@
+.footer {
+  background-color: #f8f8f8;
+  padding: 1rem;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.footer-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-nav li {
+  display: inline;
+  margin: 0 1rem;
+}
+
+.copyright {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #555;
+}

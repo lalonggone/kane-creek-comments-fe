@@ -1,0 +1,55 @@
+@import '../../styles/mixins.scss';
+
+.about-container {
+  padding: 2rem;
+  text-align: center;
+
+  @include smMinBreakPoint {
+    max-width: 576px;
+    margin: 0 auto;
+  }
+
+  @include mdMinBreakPoint {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @include lgMinBreakPoint {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+
+    @include smMaxBreakPoint {
+      font-size: 2rem;
+      padding: 10px 15px;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #333;
+    padding: 30px 30px 0px 30px;
+
+    @include smMaxBreakPoint {
+      font-size: 0.9rem;
+      padding: 10px 15px;
+    }
+
+    a {
+      color: $primaryColor;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

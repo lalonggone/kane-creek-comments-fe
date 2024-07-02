@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 import Search from '../Search/Search'
 import Responses from '../Responses/Responses'
 import './Main.scss'
@@ -11,6 +12,7 @@ function Main({ responses, setSearchTerm, setFilter }) {
         <Header />
         <Search setSearchTerm={setSearchTerm} setFilter={setFilter} />
         <Responses responses={responses} />
+        <Footer />
       </main>
     </>
   )

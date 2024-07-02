@@ -81,7 +81,7 @@ const Responses = ({ responses }: ResponsesProps) => {
           onClick={() => paginate(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous
+          prev
         </button>
         {paginationRange.map((page, index) => (
           <button
@@ -97,7 +97,7 @@ const Responses = ({ responses }: ResponsesProps) => {
           onClick={() => paginate(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
-          Next
+          next
         </button>
       </div>
     </>

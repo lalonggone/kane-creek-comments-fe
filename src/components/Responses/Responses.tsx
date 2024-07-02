@@ -1,23 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Responses.scss';
 import { Link } from 'react-router-dom';
 import { Response } from '../../types/Response';
 
 interface ResponsesProps {
-  responses: Response[];
+  responses: Response[]
 }
 
 const Responses = ({ responses }: ResponsesProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const responsesPerPage = 12;
 
-  // Filter responses that have comments
-  const responsesWithComments = responses.filter(response => response.comment && response.comment.trim() !== '');
+  const responsesWithComments = responses.filter(response => response.response && response.response.trim() !== '');
 
-  // Calculate the total number of pages
   const totalPages = Math.ceil(responsesWithComments.length / responsesPerPage);
 
-  // Get the responses for the current page
   const indexOfLastResponse = currentPage * responsesPerPage;
   const indexOfFirstResponse = indexOfLastResponse - responsesPerPage;
   const currentResponses = responsesWithComments.slice(
@@ -26,18 +23,16 @@ const Responses = ({ responses }: ResponsesProps) => {
   );
 
   const comments = currentResponses.map((response) => {
-    const comment = response.comment ? response.comment.substring(0, 120) : '';
-    return response.comment && response.comment.length > 200
+    const comment = response.response ? response.response.substring(0, 120) : '';
+    return response.response && response.response.length > 200
       ? comment + '...'
       : comment;
   });
 
-  // Handler to change the page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  // Helper to create pagination range
   const createPaginationRange = () => {
-    const delta = 2; // Number of pages to show on each side of the current page
+    const delta = 2; 
     const range: (number | string)[] = [];
     for (
       let i = Math.max(2, currentPage - delta);

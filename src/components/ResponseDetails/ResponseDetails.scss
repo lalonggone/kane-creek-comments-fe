@@ -1,5 +1,11 @@
 @import '../../styles/mixins.scss';
 
+.not-found {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+}
 .response-details-container {
   display: flex;
   flex-direction: column;

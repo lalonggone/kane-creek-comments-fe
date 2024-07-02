@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Responses.scss';
 import { Link } from 'react-router-dom';
 import { Response } from '../../types/Response';
-import { fetchResponses } from '../../api';
+import getResponses from '../../services/api';
 
 const Responses = () => {
   const [responses, setResponses] = useState<Response[]>([]);
@@ -12,9 +12,9 @@ const Responses = () => {
   const responsesPerPage = 12;
 
   useEffect(() => {
-    const getResponses = async () => {
+    const fetchResponses = async () => {
       try {
-        const data = await fetchResponses();
+        const data = await getResponses();
         setResponses(data);
       } catch (error) {
         console.error('Failed to fetch responses.', error);
@@ -24,7 +24,7 @@ const Responses = () => {
       }
     };
 
-    getResponses();
+    fetchResponses();
   }, []);
 
   // Filter responses that have comments

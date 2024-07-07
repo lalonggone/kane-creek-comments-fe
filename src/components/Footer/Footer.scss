@@ -1,8 +1,16 @@
+// import mixins
+@import '../../styles/mixins.scss';
+
 .footer {
-  padding: 1rem;
+  padding: 2rem;
   bottom: 0;
   width: 100%;
   text-align: center;
+
+  @include smMaxBreakPoint {
+    // padding: 0.5rem;
+    font-size: 0.8rem;
+  }
 }
 
 .footer-nav ul {
@@ -18,5 +26,9 @@
 .copyright {
   margin-top: 1rem;
   font-size: 0.875rem;
-  // color: #555;
+
+  @include smMaxBreakPoint {
+    font-size: 0.75rem;
+  }
+
 }

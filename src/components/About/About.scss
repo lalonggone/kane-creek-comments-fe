@@ -29,8 +29,9 @@
     }
   }
 
-  p {
+  .about-paragraph {
     font-size: 1rem;
+    font-weight: 300;
     line-height: 1.6;
     margin-bottom: 1rem;
     color: #333;
@@ -41,7 +42,7 @@
       padding: 10px 15px;
     }
 
-    a {
+    .link {
       color: $primaryColor;
       text-decoration: none;
       font-weight: 600;

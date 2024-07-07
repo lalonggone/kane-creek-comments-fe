@@ -1,7 +1,16 @@
+// import mixins
+@import '../../styles/mixins.scss';
+
 .header {
   h1 {
     margin: 0;
     padding: .7em 0 0 1.1em;
+  }
+  // smaller heading size for mobile
+  @include smMaxBreakPoint {
+    h1 {
+      font-size: 1.5rem;
+    }
   }
 }
 

@@ -14,6 +14,9 @@ const Footer = () => {
           <li>
             <Link to="/about">about</Link>
           </li>
+          <li>
+            <Link to="/contact">contact</Link>
+          </li>
         </ul>
       </nav>
       <p className="copyright">&copy; 2024 Laura Long. All rights reserved.</p>

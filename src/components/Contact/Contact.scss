@@ -1,0 +1,88 @@
+// src/components/Contact/Contact.scss
+@import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
+
+.contact-container {
+  padding: 2rem;
+  text-align: center;
+
+  @include smMinBreakPoint {
+    max-width: 576px;
+    margin: 0 auto;
+  }
+
+  @include mdMinBreakPoint {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @include lgMinBreakPoint {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .contact-header {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+
+    @include smMaxBreakPoint {
+      font-size: 1.7rem;
+      padding: 10px 15px;
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 3rem;
+
+    .contact-label {
+      font-size: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+      max-width: 400px;
+
+        @include smMaxBreakPoint {
+            font-size: 1rem;
+        }
+    }
+
+    .contact-input,
+    .contact-textarea {
+      width: 100%;
+      padding: 0.5rem;
+      font-size: 1rem;
+      font-family: inherit;
+      font-weight: 300;
+      border: 1px solid #b2b2b2;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+    }
+
+    .contact-button {
+      padding: 0.7rem 1.5rem;
+      margin-top: 1rem;
+      font-size: 1rem;
+      background-color: $primaryColor;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: darken($primaryColor, 10%);
+      }
+
+        @include smMaxBreakPoint {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+    }
+  }
+}

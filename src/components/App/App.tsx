@@ -4,6 +4,7 @@ import Main from '../Main/Main'
 import About from '../About/About'
 import NotFound from '../NotFound/NotFound'
 import ResponseDetails from '../ResponseDetails/ResponseDetails'
+import Contact from '../Contact/Contact'
 import './App.scss'
 import { Routes, Route } from 'react-router-dom'
 import { Response } from '../../types/Response'
@@ -83,6 +84,7 @@ const App = () => {
         />
         <Route path="*" element={<NotFound />} />
         <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </>
   )

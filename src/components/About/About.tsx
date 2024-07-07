@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import './About.scss';
 
@@ -7,16 +8,22 @@ const About = () => (
     <div className="about-container">
       <h1>about this app</h1>
       <p className="about-paragraph">
-        Kane Creek Comments is a platform that allows users to
-        filter, search through and display the thousands of petition survey
-        responses to the contentious Kane Creek development in Grand County,
-        Utah. The goal is to promote transparency and foster community
+        Kane Creek Comments is a web application that allows users to
+        filter and search the thousands of survey
+        responses regarding the contentious Kane Creek development in{' '}
+        <a className="link"
+          href="https://www.grandcountyutah.net/DocumentCenter/View/19156/5_Sustainability"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Grand County, Utah
+        </a>. The goal of this app is to promote transparency and foster community
         engagement by making these opinions accessible. Hopefully,
         key stakeholders like investors and elected officials will take these
         into account when making decisions.
       </p>
       <p className="about-paragraph">
-        Notice how the majority of residents rate their level of concern at 5/5.
+        Notice the majority of residents rate their level of concern at 5/5.
         We recommend searching terms like “grew up in Moab”, “local business”,
         or “river guide” to understand the variety of community
         feedback.
@@ -39,7 +46,10 @@ const About = () => (
         >
           back end
         </a>{' '}
-        is hosted on Render. Feel free to reach out if you have any questions / feedback or to collaborate!
+        is hosted on Render. Please{' '}
+        <Link className="link" to="/contact">
+          reach out
+        </Link> if you have feedback or if you'd like to collaborate!
       </p>
       <p className="about-paragraph">
         Visit {' '}

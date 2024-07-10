@@ -39,7 +39,7 @@ const Pagination = ({ currentPage, totalPages, paginate }: PaginationProps) => {
           key={index}
           onClick={() => paginate(page as number)}
           className={`pagination-btn ${page === currentPage ? 'active' : ''}`}
-          disabled={page === '...'}
+          disabled={page === '.'}
         >
           {page}
         </button>

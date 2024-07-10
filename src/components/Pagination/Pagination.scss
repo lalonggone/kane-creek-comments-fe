@@ -21,6 +21,11 @@
 
     &:disabled {
       cursor: not-allowed;
+      transform: none;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
     }
   }
 

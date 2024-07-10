@@ -1,17 +1,16 @@
-import React from 'react'
-import './Search.scss'
+import React from 'react';
+import './Search.scss';
 
-function Search({ setSearchTerm, setFilter }) {
-  
+function Search({ searchTerm, setSearchTerm, setFilter }) {
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value)
-    console.log('search term:', e.target.value)
-  }
+    setSearchTerm(e.target.value);
+    console.log('search term:', e.target.value);
+  };
 
   const handleFilter = (e) => {
-    setFilter(e.target.value)
-    console.log('filter:', e.target.value)
-  }
+    setFilter(e.target.value);
+    console.log('filter:', e.target.value);
+  };
 
   return (
     <div className="search-bar-container">
@@ -21,6 +20,7 @@ function Search({ setSearchTerm, setFilter }) {
           id="search"
           name="search"
           placeholder="search keywords"
+          value={searchTerm} // Set the value to the searchTerm state
           onChange={handleSearch}
           aria-label="Search"
         />
@@ -37,7 +37,7 @@ function Search({ setSearchTerm, setFilter }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Search
+export default Search;

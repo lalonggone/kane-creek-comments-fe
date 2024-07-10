@@ -8,9 +8,9 @@ const About = () => (
     <div className="about-container">
       <h1>about this app</h1>
       <p className="about-paragraph">
-        Kane Creek Comments is a web application that allows users to
-        filter and search the thousands of survey
-        responses regarding the contentious Kane Creek development in{' '}
+        Kane Creek Comments is a web app that allows users to
+        search thousands of survey
+        responses regarding the Kane Creek development in{' '}
         <a className="link"
           href="https://www.grandcountyutah.net/DocumentCenter/View/19156/5_Sustainability"
           target="_blank"
@@ -18,13 +18,13 @@ const About = () => (
         >
           Grand County, Utah
         </a>. The goal of this app is to promote transparency and foster community
-        engagement by making these opinions accessible. Hopefully,
-        key stakeholders like investors and elected officials will take these
+        engagement by making these opinions accessible and, ideally,
+        key stakeholders will take these
         into account when making decisions.
       </p>
       <p className="about-paragraph">
-        Notice the majority of residents rate their level of concern at 5/5.
-        We recommend searching terms like “grew up in Moab”, “local business”,
+        Notice the majority of residents rated their level of concern at 5/5.
+        Try searching terms like “grew up in Moab”, “local business”,
         or “river guide” to understand the variety of community
         feedback.
       </p>
@@ -60,7 +60,7 @@ const About = () => (
         >
           kanecreekwatch.org
         </a> {' '}
-        to learn more about the development and discover ways to get involved.
+        to learn more about the resistance against the development and discover ways to get involved.
       </p>
       <Footer />
     </div>

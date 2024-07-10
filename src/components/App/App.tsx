@@ -72,10 +72,11 @@ const App = () => {
           element={
             <Main
               responses={filteredResponses}
+              searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
               setFilter={setFilter}
               // error={error}
-              />
+            />
           }
         />
         <Route

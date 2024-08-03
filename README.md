@@ -44,7 +44,6 @@ If that command doesnt work, check the .package-json file and make sure yout hav
 - HTML
 - CSS/SCSS
 - JSX / React
-- End-to-end testing with Cypress
 - Vite
 
 Questions? Comments? Feedback? Thanks for looking! 

@@ -1,28 +1,28 @@
-// typography eleent styles for h1 - h6, p, etc
+// typography element styles for h1 - h6, p, etc
 
 @import './mixins';
 
 @font-face {
   font-family: 'Cascadia Code';
   src: url('./cascadia_code.ttf') format('truetype');
-  //   font-weight: normal;
-  //   font-style: normal;
 }
 
-h1 {
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
-  font-weight: 400;
-}
-
-h2 {
-  margin: 0;
-  padding: 0;
-  font-weight: 400;
+  font-family: $fontHeading;
+  font-weight: 600;
+  line-height: 1.2;
 }
 
 p {
   margin: 0;
   padding: 0;
-  font-weight: 200;
+}
+
+// Data accent — used for dates, concern levels, counts and the stats line.
+.mono {
+  font-family: $fontMono;
 }

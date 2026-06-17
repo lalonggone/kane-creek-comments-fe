@@ -1,7 +1,7 @@
 @import '../../styles/mixins.scss';
 
 .main {
-  padding: 20px;
+  padding: 48px 20px 32px;
 
   @include smMinBreakPoint {
     max-width: 576px;

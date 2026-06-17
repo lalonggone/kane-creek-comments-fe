@@ -1,51 +1,86 @@
-import React, { useState } from 'react';
-import './Responses.scss';
-import { Link } from 'react-router-dom';
-import { Response } from '../../types/Response';
-import Pagination from '../Pagination/Pagination';
+import './Responses.scss'
+import { Link } from 'react-router-dom'
+import { Response } from '../../types/Response'
+import Pagination from '../Pagination/Pagination'
 
 interface ResponsesProps {
-  responses: Response[];
+  results: Response[]
+  total: number
+  page: number
+  totalPages: number
+  setPage: (page: number) => void
+  isLoading: boolean
+  error: string | null
 }
 
-const Responses = ({ responses }: ResponsesProps) => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  const responsesPerPage = 12;
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString.replace(' ', 'T'))
+  if (isNaN(date.getTime())) return ''
+  return date
+    .toLocaleDateString(undefined, { month: 'short', year: 'numeric' })
+    .toUpperCase()
+}
 
-  const responsesWithComments = responses.filter(response => response.response && response.response.trim() !== '');
+const residencyLabel = (value: string) =>
+  value === 'Yes, I am a resident' ? 'resident' : 'visitor'
 
-  const totalPages = Math.ceil(responsesWithComments.length / responsesPerPage);
+const Responses = ({
+  results,
+  total,
+  page,
+  totalPages,
+  setPage,
+  isLoading,
+  error,
+}: ResponsesProps) => {
+  if (error) {
+    return (
+      <div className="responses-status">
+        <p>Sorry — couldn’t load comments. Please try again.</p>
+      </div>
+    )
+  }
 
-  const indexOfLastResponse = currentPage * responsesPerPage;
-  const indexOfFirstResponse = indexOfLastResponse - responsesPerPage;
-  const currentResponses = responsesWithComments.slice(indexOfFirstResponse, indexOfLastResponse);
+  if (isLoading && results.length === 0) {
+    return (
+      <div className="responses-status">
+        <p>Loading comments…</p>
+      </div>
+    )
+  }
 
-  const comments = currentResponses.map((response) => {
-    const comment = response.response ? response.response.substring(0, 120) : '';
-    return response.response && response.response.length > 200 ? comment + '...' : comment;
-  });
-
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  if (total === 0) {
+    return (
+      <div className="responses-status">
+        <p>No comments found.</p>
+      </div>
+    )
+  }
 
   return (
     <>
-      {responsesWithComments.length === 0 ? (
-        <div className="no-comments-found">
-          <p>No comments found</p>
-        </div>
-      ) : (
-        <div className="responses">
-          {currentResponses.map((response) => (
-            <Link to={`/response/${response.id}`} key={response.id} className="response-card">
-              <h2>{response.name}</h2>
-              <p>{comments[currentResponses.indexOf(response)]}</p>
-            </Link>
-          ))}
-        </div>
-      )}
-      <Pagination currentPage={currentPage} totalPages={totalPages} paginate={paginate} />
+      <div className={`responses ${isLoading ? 'is-loading' : ''}`}>
+        {results.map((response) => (
+          <Link
+            to={`/response/${response.id}`}
+            key={response.id}
+            className="response-card"
+          >
+            <h2>{response.name}</h2>
+            <p className="response-meta">
+              <span>{formatDate(response.submitted_at)}</span>
+              <span>{residencyLabel(response.grand_county_resident)}</span>
+              {response.concern_level != null && (
+                <span>concern {response.concern_level}/5</span>
+              )}
+            </p>
+            <p className="response-excerpt">{response.response}</p>
+          </Link>
+        ))}
+      </div>
+      <Pagination currentPage={page} totalPages={totalPages} paginate={setPage} />
     </>
-  );
-};
+  )
+}
 
-export default Responses;
+export default Responses

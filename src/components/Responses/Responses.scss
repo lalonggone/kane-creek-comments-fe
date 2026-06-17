@@ -4,58 +4,87 @@
 .responses {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 50px;
-  justify-items: center;
-  align-items: center;
-  padding: 10px 20px 10px 20px;
+  gap: 28px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  transition: opacity $transition;
+
+  // Dim the grid slightly while the next page/search is loading.
+  &.is-loading {
+    opacity: 0.55;
+  }
 
   .response-card {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding: 10px 20px 10px 20px;
-    border: 1px solid #b2b2b2;
+    height: 206px;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid #d8d2c2;
     border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     background-color: $secondaryLight2Color;
-    width: 300px;
-    height: 220px;
-    transition: transform 0.1s ease-in-out;
+    transition: border-color $transition, box-shadow $transition;
 
+    // Matches the search bar's active state: green border + soft green glow.
     &:hover {
-      transform: scale(105%);
+      border-color: $primaryColor;
+      box-shadow: 0 0 0 3px rgba(0, 128, 96, 0.15);
     }
 
     h2 {
-      font-size: 1.5rem;
-      font-weight: 600;
-      padding: 1rem 0;
+      font-size: 1.35rem;
+      color: $primaryDark2Color;
+      margin-bottom: 0.45rem;
     }
 
-    p {
-      line-height: 1.3;
+    .response-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.6rem;
+      font-family: $fontMono;
+      font-size: 0.68rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: $textLight1Color;
+      margin-bottom: 0.7rem;
+
+      span:not(:last-child)::after {
+        content: '·';
+        margin-left: 0.6rem;
+      }
+    }
+
+    .response-excerpt {
+      color: $textColor;
+      line-height: 1.5;
+      font-size: 0.95rem;
+      // Clamp on a line boundary — no mid-word cut, no JS substring.
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 
   @include smMaxBreakPoint {
+    gap: 20px;
     .response-card {
-      width: 270px;
-      height: 200px;
-
+      height: 186px;
       h2 {
         font-size: 1.2rem;
       }
-
-      p {
+      .response-excerpt {
         font-size: 0.9rem;
       }
     }
   }
-
 }
 
-.no-comments-found {
+.responses-status {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 180px;
+  color: $textLight1Color;
 }

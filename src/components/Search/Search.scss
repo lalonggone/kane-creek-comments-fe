@@ -4,7 +4,7 @@
 .search-bar-container {
   display: flex;
   justify-content: center;
-  padding: 4em 0;
+  padding: 2.5em 0;
 
   @include xlMaxBreakPoint {
     padding: 2em 0;
@@ -16,47 +16,57 @@
   display: flex;
   align-items: center;
   background-color: $secondaryLight2Color;
-  border: 1px solid #ccc;
+  border: 1px solid #d8d2c2;
   border-radius: 7px;
   padding: 5px 10px;
   width: 45%;
-  height: 60px; 
-  
-  @include lgMaxBreakPoint {
-    height: 50px;
+  height: 56px;
+  transition: border-color $transition, box-shadow $transition;
+
+  // Focus indicator lives on the bar, so the inner controls stay borderless.
+  &:focus-within {
+    border-color: $primaryColor;
+    box-shadow: 0 0 0 3px rgba(0, 128, 96, 0.15);
   }
 
-  input, select {
-    font-family: 'Cascadia Code', monospace;
+  @include lgMaxBreakPoint {
+    height: 48px;
+  }
+
+  input,
+  select {
+    font-family: $fontBody;
     font-size: 16px;
     border: none;
     padding: 10px;
     flex-grow: 1;
     border-radius: 0;
+    color: $textColor;
     background-color: $secondaryLight2Color;
-    
+
     @include lgMaxBreakPoint {
       font-size: 14px;
       height: 40px;
     }
-    
+
     &:focus {
       outline: none;
     }
   }
-  
+
   input {
     min-width: 100px;
     border-radius: 4px 0 0 4px;
-    border-right: 1px solid #ccc;
-
+    border-right: 1px solid #d8d2c2;
   }
-  
+
   select {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 130px;
     height: 40px;
-    width: 80px;
+    padding-right: 14px;
     border-radius: 0 4px 4px 0;
-    position: relative;
     cursor: pointer;
   }
 }

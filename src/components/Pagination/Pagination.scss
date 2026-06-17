@@ -1,39 +1,66 @@
 @import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 48px;
 
   .pagination-btn {
-    margin: 0 5px;
-    padding: 10px 15px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 12px;
     cursor: pointer;
-    border: 1px solid #b2b2b2;
-    border-radius: 5px;
+    border: 1px solid #e2dcca;
+    border-radius: 6px;
     background-color: $secondaryLight2Color;
-    transition: border-bottom 0.3s ease;
-    font-size: 1rem;
+    color: $textColor;
+    font-size: 0.9rem;
+    transition: color $transition, border-color $transition, background-color $transition;
+
+    &:hover:not(:disabled) {
+      border-color: $primaryColor;
+      color: $primaryColor;
+    }
 
     &.active {
-      border-bottom: 2px solid $primaryColor;
+      background-color: $primaryColor;
+      border-color: $primaryColor;
+      color: #fff;
+      font-weight: 600;
     }
 
     &:disabled {
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    &:hover {
-      transform: translateY(-2px);
+      opacity: 0.4;
+      cursor: default;
     }
   }
 
+  .pagination-step {
+    font-weight: 500;
+  }
+
+  .pagination-dots {
+    display: flex;
+    align-items: flex-end;
+    min-width: 28px;
+    height: 40px;
+    justify-content: center;
+    color: $textLight1Color;
+    user-select: none;
+  }
+
   @include smMaxBreakPoint {
+    gap: 4px;
+
     .pagination-btn {
-      margin: 0 3px;
-      padding: 8px 10px;
-      font-size: 0.9rem;
+      min-width: 34px;
+      height: 36px;
+      padding: 0 8px;
+      font-size: 0.82rem;
     }
   }
 }

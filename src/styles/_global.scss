@@ -8,19 +8,21 @@
 }
 
 a {
+  // Links inherit text color by default; only designated text links (.text-link,
+  // nav, footer) shift to the green accent on hover, so card links stay neutral.
   text-decoration: none;
-  color: black;
+  color: inherit;
+  transition: color $transition;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Cascadia Code', monospace;
-  box-sizing: border-box;
+  font-family: $fontBody;
+  color: $textColor;
   background-color: $secondaryLight1Color;
-  box-sizing: border-box;
-  height: 100vh;
-  min-height: 100%;
+  min-height: 100vh;
+  line-height: 1.5;
 }
 
 button {
@@ -35,5 +37,38 @@ button {
 }
 
 #root {
-  height: 100%;
+  min-height: 100%;
+}
+
+// A consistent text-link treatment: green accent + underline on hover/focus.
+.text-link {
+  color: $primaryDark1Color;
+  font-weight: 500;
+
+  &:hover,
+  &:focus-visible {
+    color: $primaryColor;
+    text-decoration: underline;
+  }
+}
+
+// Consistent keyboard-focus outline for every interactive element.
+a,
+button,
+input,
+select,
+textarea {
+  &:focus-visible {
+    outline: 2px solid $primaryColor;
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+// Respect users who prefer reduced motion — disable all transitions/animations.
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }

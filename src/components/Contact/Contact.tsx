@@ -1,5 +1,3 @@
-// src/components/Contact/Contact.js
-import React from 'react'
 import Footer from '../Footer/Footer'
 import './Contact.scss'
 

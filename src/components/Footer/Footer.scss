@@ -1,14 +1,23 @@
-// import mixins
 @import '../../styles/mixins.scss';
+@import '../../styles/variables.scss';
 
 .footer {
-  padding: 2rem;
-  bottom: 0;
   width: 100%;
+  padding: 2.5rem 2rem;
   text-align: center;
 
+  .underline-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .underline {
+    width: 100%;
+    border-bottom: 1px solid #e2dcca;
+  }
+
   @include smMaxBreakPoint {
-    // padding: 0.5rem;
     font-size: 0.8rem;
   }
 }
@@ -16,6 +25,7 @@
 .footer-nav ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 .footer-nav li {
@@ -24,11 +34,11 @@
 }
 
 .copyright {
-  margin-top: 1rem;
+  margin-top: 1.25rem;
   font-size: 0.875rem;
+  color: $textLight1Color;
 
   @include smMaxBreakPoint {
     font-size: 0.75rem;
   }
-
 }

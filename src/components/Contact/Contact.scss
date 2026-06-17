@@ -2,7 +2,7 @@
 @import '../../styles/variables.scss';
 
 .contact-container {
-  padding: 2rem;
+  padding: 4rem 2rem 2rem;
   text-align: center;
 
   @include smMinBreakPoint {
@@ -71,10 +71,10 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color $transition;
 
       &:hover {
-        background-color: darken($primaryColor, 10%);
+        background-color: $primaryDark1Color;
       }
 
         @include smMaxBreakPoint {

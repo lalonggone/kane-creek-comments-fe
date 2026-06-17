@@ -22,3 +22,12 @@ $secondaryLight2Color: #fff8f6;
 
 $warningColor: #c43256;
 $warningLight1Color: #c432571f;
+
+// Type — hybrid: a warm serif for headings, a readable humanist sans for body,
+// and Cascadia Code kept strictly for data accents (dates, concern, counts).
+$fontHeading: Georgia, 'Iowan Old Style', 'Palatino Linotype', Palatino, serif;
+$fontBody: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$fontMono: 'Cascadia Code', ui-monospace, 'SF Mono', Menlo, monospace;
+
+// One shared transition for every hover/focus state in the app.
+$transition: 150ms ease;

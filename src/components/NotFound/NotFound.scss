@@ -2,29 +2,34 @@
 @import '../../styles/_variables.scss';
 
 .nf-and-btn-container {
-  height: 200px;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-height: 50vh;
+  padding: 2rem;
 }
 
 .nf-container {
   text-align: center;
 
-  .go-home {
-    position: absolute;
-    bottom: 0;
-    transform: translateX(-50%);
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 7px;
-    padding: 5px 10px;
-    height: 35px;
+  .not-found-title {
+    font-size: 1.8rem;
+    color: $primaryDark2Color;
+    margin-bottom: 1.5rem;
+  }
 
-    @include smMinBreakPoint {
-      color: red;
+  .go-home button {
+    border: 1px solid #d8d2c2;
+    border-radius: 7px;
+    padding: 0.6rem 1.2rem;
+    background-color: $secondaryLight2Color;
+    color: $textColor;
+    transition: color $transition, border-color $transition;
+
+    &:hover {
+      border-color: $primaryColor;
+      color: $primaryColor;
     }
-}
+  }
 }

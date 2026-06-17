@@ -1,17 +1,13 @@
-import React from 'react';
-import './Search.scss';
+import './Search.scss'
 
-function Search({ searchTerm, setSearchTerm, setFilter }) {
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-    console.log('search term:', e.target.value);
-  };
+interface SearchProps {
+  searchTerm: string
+  setSearchTerm: (term: string) => void
+  residency: string
+  setResidency: (residency: string) => void
+}
 
-  const handleFilter = (e) => {
-    setFilter(e.target.value);
-    console.log('filter:', e.target.value);
-  };
-
+function Search({ searchTerm, setSearchTerm, residency, setResidency }: SearchProps) {
   return (
     <div className="search-bar-container">
       <div className="search-bar">
@@ -20,24 +16,25 @@ function Search({ searchTerm, setSearchTerm, setFilter }) {
           id="search"
           name="search"
           placeholder="search keywords"
-          value={searchTerm} // Set the value to the searchTerm state
-          onChange={handleSearch}
-          aria-label="Search"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          aria-label="Search comments"
         />
         <div className="filter-container">
           <select
             id="filter"
             name="filter"
-            onChange={handleFilter}
-            aria-label="Filter"
+            value={residency}
+            onChange={(e) => setResidency(e.target.value)}
+            aria-label="Filter by residency"
           >
             <option value="all">all</option>
-            <option value="gc-residents">Moab residents</option>
+            <option value="residents">residents</option>
           </select>
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Search;
+export default Search

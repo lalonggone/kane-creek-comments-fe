@@ -1,0 +1,19 @@
+{
+  "results": [
+    { "id": 1, "submitted_at": "2024-07-20 10:00:00", "grand_county_resident": "Yes, I am a resident", "concern_level": 5, "response": "This land should stay wild. Development here would be a mistake.", "impacts_speculated": "Traffic congestion and overcrowding, Loss of natural habitat", "name": "Test User 1" },
+    { "id": 2, "submitted_at": "2024-07-19 09:30:00", "grand_county_resident": "No, I am a visitor", "concern_level": 4, "response": "I visit Moab every year and love the canyon. Please protect it.", "impacts_speculated": "Increased pollution", "name": "Anonymous" },
+    { "id": 3, "submitted_at": "2024-07-18 14:15:00", "grand_county_resident": "Yes, I am a resident", "concern_level": 5, "response": "Our water and roads cannot support this scale of building.", "impacts_speculated": "Exacerbation of the existing local housing issue", "name": "Test User 3" },
+    { "id": 4, "submitted_at": "2024-07-17 11:05:00", "grand_county_resident": "No, I am a visitor", "concern_level": 3, "response": "Concerned about the wildlife corridors in the area.", "impacts_speculated": "Loss of natural habitat", "name": "Anonymous" },
+    { "id": 5, "submitted_at": "2024-07-16 16:45:00", "grand_county_resident": "Yes, I am a resident", "concern_level": 5, "response": "I grew up in Moab and this would change it forever.", "impacts_speculated": "Negative impact on community character", "name": "Test User 5" },
+    { "id": 6, "submitted_at": "2024-07-15 08:20:00", "grand_county_resident": "No, I am a visitor", "concern_level": 4, "response": "River guide here. The traffic impacts alone are alarming.", "impacts_speculated": "Traffic congestion and overcrowding", "name": "Test User 6" },
+    { "id": 7, "submitted_at": "2024-07-14 13:00:00", "grand_county_resident": "Yes, I am a resident", "concern_level": 2, "response": "I have mixed feelings but want a transparent process.", "impacts_speculated": "", "name": "Anonymous" },
+    { "id": 8, "submitted_at": "2024-07-13 19:10:00", "grand_county_resident": "No, I am a visitor", "concern_level": 5, "response": "Local business owner nearby. This threatens our livelihood.", "impacts_speculated": "Negative impact on community character", "name": "Test User 8" },
+    { "id": 9, "submitted_at": "2024-07-12 07:55:00", "grand_county_resident": "Yes, I am a resident", "concern_level": 4, "response": "Housing is already tight. This does not help residents.", "impacts_speculated": "Exacerbation of the existing local housing issue", "name": "Test User 9" },
+    { "id": 10, "submitted_at": "2024-07-11 12:40:00", "grand_county_resident": "No, I am a visitor", "concern_level": 3, "response": "Please consider the dark skies and quiet this place offers.", "impacts_speculated": "Increased pollution", "name": "Anonymous" },
+    { "id": 11, "submitted_at": "2024-07-10 15:25:00", "grand_county_resident": "Yes, I am a resident", "concern_level": 5, "response": "Mountain biking and hiking access matter to our community.", "impacts_speculated": "Loss of natural habitat", "name": "Test User 11" },
+    { "id": 12, "submitted_at": "2024-07-09 18:00:00", "grand_county_resident": "No, I am a visitor", "concern_level": 4, "response": "The area is a gem and should not be developed.", "impacts_speculated": "Traffic congestion and overcrowding, Increased pollution", "name": "Test User 12" }
+  ],
+  "total": 240,
+  "page": 1,
+  "limit": 12
+}

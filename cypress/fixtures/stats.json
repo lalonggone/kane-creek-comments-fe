@@ -1,0 +1,16 @@
+{
+  "total": 240,
+  "named": 100,
+  "anonymous": 140,
+  "byResidency": [
+    { "grand_county_resident": "No, I am a visitor", "count": 200 },
+    { "grand_county_resident": "Yes, I am a resident", "count": 40 }
+  ],
+  "byConcernLevel": [
+    { "concern_level": 1, "count": 10 },
+    { "concern_level": 2, "count": 15 },
+    { "concern_level": 3, "count": 25 },
+    { "concern_level": 4, "count": 40 },
+    { "concern_level": 5, "count": 150 }
+  ]
+}

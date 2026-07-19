@@ -36,7 +36,7 @@ const Responses = ({
   if (error) {
     return (
       <div className="responses-status">
-        <p>Sorry — couldn’t load comments. Please try again.</p>
+        <p>Sorry, couldn’t load comments. Please try again.</p>
       </div>
     )
   }

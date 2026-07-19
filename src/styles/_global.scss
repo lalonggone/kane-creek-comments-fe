@@ -65,7 +65,7 @@ textarea {
   }
 }
 
-// Respect users who prefer reduced motion — disable all transitions/animations.
+// Respect users who prefer reduced motion: disable all transitions/animations.
 @media (prefers-reduced-motion: reduce) {
   * {
     transition: none !important;

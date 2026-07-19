@@ -54,6 +54,36 @@
     }
   }
 
+  .version-history {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.25rem;
+
+    li {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: $textColor;
+      margin-bottom: 1.25rem;
+      padding-left: 1rem;
+      border-left: 3px solid $primaryColor;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include smMaxBreakPoint {
+        font-size: 0.95rem;
+      }
+    }
+
+    .version-tag {
+      display: block;
+      font-weight: 700;
+      color: $primaryDark2Color;
+      margin-bottom: 0.2rem;
+    }
+  }
+
   .about-paragraph {
     font-size: 1.05rem;
     line-height: 1.7;

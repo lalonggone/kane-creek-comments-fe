@@ -23,8 +23,19 @@ const About = () => (
     </p>
 
     <p className="about-paragraph">
-      This is a hand-rolled, full-stack web app built using React, TypeScript, SCSS,
-      Node.js, Express, SQLite, and lots of love. The{' '}
+      I first built this while learning the fundamentals of software development,
+      and it became the project where a lot of those fundamentals clicked:
+      designing a REST API, wiring a front end to a back end, modeling and
+      querying data, writing automated tests, and deploying a full-stack app to
+      the web.
+    </p>
+
+    <p className="about-paragraph">
+      It’s hand-rolled top to bottom. The front end is React with TypeScript,
+      React Router, and SCSS, bundled with Vite and covered by Cypress end-to-end
+      tests. The back end is a Node.js and Express API using Knex over a SQLite
+      database, running behind an nginx reverse proxy on a server I host myself.
+      Both the{' '}
       <a
         className="link"
         href="https://github.com/lalonggone/kane-creek-comments-fe"
@@ -42,7 +53,7 @@ const About = () => (
       >
         back end
       </a>{' '}
-      are both open source. Please{' '}
+      are open source. Please{' '}
       <Link className="link" to="/contact">
         reach out
       </Link>{' '}
@@ -56,6 +67,26 @@ const About = () => (
       searching terms like “grew up in Moab”, “local business”, or “river guide” to
       understand the variety of community feedback.
     </p>
+
+    <h2 className="about-heading">version history</h2>
+
+    <ul className="version-history">
+      <li>
+        <span className="version-tag">v1.0 · 2024</span>
+        The first release: browse, search, and filter thousands of survey
+        responses, each with its own detail page. Built as a React front end
+        backed by an Express API and a PostgreSQL database, and deployed on a
+        managed hosting platform.
+      </li>
+      <li>
+        <span className="version-tag">v2.0 · 2026</span>
+        Rebuilt the data layer on SQLite and migrated the app to a server I host
+        myself. Added server-side search and pagination so it scales past loading
+        everything at once, a live stats summary, and PII-safe API responses that
+        never expose anyone’s personal contact information, plus a refreshed
+        comment-browsing interface.
+      </li>
+    </ul>
 
     <h2 className="about-heading">get involved</h2>
 

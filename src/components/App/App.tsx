@@ -59,7 +59,7 @@ const App = () => {
     }
   }, [debouncedTerm, residency, page])
 
-  // Stats line — fetched once.
+  // Stats line, fetched once.
   useEffect(() => {
     getStats()
       .then(setStats)

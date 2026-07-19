@@ -1,4 +1,4 @@
-# Kane Creek Comments — Front End
+# Kane Creek Comments: Front End
 
 A web app that displays public comments from a survey about the Kane Creek
 development in Grand County, Utah. It gives anyone following the issue a way to
@@ -63,12 +63,12 @@ Specs live in `cypress/e2e/`.
 
 ## Roadmap / To Do
 
-- **Stats on the About page** — show total responses and how many asked to stay
+- **Stats on the About page**: show total responses and how many asked to stay
   anonymous (`x / xx`). The API's `/stats` endpoint already returns these totals;
   this is front-end wiring.
 - Shorten the About page and fix typos
 - Capitalization pass across copy
 - A random-response route
-- Favorites — track and surface a "most favorited" list
+- Favorites: track and surface a "most favorited" list
 - Consider an additional font
-- A login (open question — needed for what?)
+- A login (open question: needed for what?)

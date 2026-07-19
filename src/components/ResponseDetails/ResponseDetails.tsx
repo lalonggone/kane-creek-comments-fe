@@ -44,8 +44,8 @@ const ResponseDetails = () => {
   const formatResident = (value: string) =>
     value === 'Yes, I am a resident' ? 'Grand County Resident' : 'Grand County Visitor'
 
-  // `impacts_speculated` is a comma-separated string and is frequently null —
-  // guard before splitting.
+  // `impacts_speculated` is a comma-separated string and is frequently null,
+  // so guard before splitting.
   const impacts = (response?.impacts_speculated || '')
     .split(',')
     .map((s) => s.trim())

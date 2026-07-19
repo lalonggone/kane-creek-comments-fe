@@ -1,49 +1,74 @@
-# Kane Creek Comments
+# Kane Creek Comments — Front End
 
-This is a web application designed to display comments from a survey regarding the Kane Creek development in Grand County, Utah. It serves as a platform for anyone interested in the conversation to view and participate. My goal with this app is to help promote transparency, foster more engagement, and improve decision-making regarding this complex issue in Moab. For more info, visit kanecreekwatch.org
+A web app that displays public comments from a survey about the Kane Creek
+development in Grand County, Utah. It gives anyone following the issue a way to
+read and search the responses, in the name of transparency and better community
+engagement. More context at [kanecreekwatch.org](https://kanecreekwatch.org).
+
+Data comes from the [comments API](../kane-creek-comments-api).
 
 ## Features
-- user-friendly and intuitive interface allowing for easy navigation through thousands of comments on the development
-- dynamic search allows users to find specific details quickly based on keywords
-- ability to filter comments based on Moab residency
+- Browse thousands of survey comments through a paginated, server-driven feed
+- Keyword search across comment text
+- Filter by Grand County residency
+- Per-response detail pages
 
-## Demo
-(coming soon)
+## Setup
 
-## Installation and Setup
-1. Clone this repository to your local machine:
-```git@github.com:lalonggone/kane-creek-comments-fe.git```
+Requires Node `20.14.0` / npm `10.7.0` (see `engines` in `package.json`).
 
-2. Navigate to the project directory:
-```cd kane-creek-comments-fe```
+1. Install dependencies:
+   ```sh
+   npm install
+   ```
+2. Start the dev server:
+   ```sh
+   npm run dev
+   ```
+3. Open http://localhost:5173/
 
-3. Install the necessary dependencies:
-```npm install```
+### Configuration
 
-4. Start the application:
-```npm run dev```
+The API base URL is read from `VITE_API_URL`:
 
-5. Open the app at http://localhost:5173/ in your browser.
+| File              | Used for            | Value                          |
+| ----------------- | ------------------- | ------------------------------ |
+| `.env.local`      | Local dev           | `http://localhost:10000`       |
+| `.env.production` | Production build    | `/api` (same-origin via nginx) |
 
+The API must be running (see the [API README](../kane-creek-comments-api)) for
+the app to return data.
 
-## Usage
-Once the frontend is running, you can use the app just like the deployed version. Search keywords such as "grew up in moab", "mountain biking", or "local business" to filter comments. You can select "Moab residents" to filter by that as well. 
+## Scripts
+
+```sh
+npm run dev       # Vite dev server
+npm run build     # production build to dist/
+npm run preview   # serve the production build locally
+npm run lint      # eslint over src (js/jsx/ts/tsx)
+npm test          # open the Cypress E2E runner
+```
 
 ## Testing
 
-1. Install Cypress:
-```npm install cypress --save-dev```
+`npm test` opens the Cypress Test Runner. Choose **E2E Testing**, then a browser.
+Specs live in `cypress/e2e/`.
 
-2. Open Cypress Test Runner: ```npm test```
-
-If that command doesnt work, check the .package-json file and make sure yout have ```"test": "cypress open"``` in "scripts". 
-
-3. In the Cypress Test runner, you'll want to select the E2E Testing type and then your preferred browser (Google Chrome for most probably). 
-
-## Technologies Used
-- HTML
-- CSS/SCSS
-- JSX / React
+## Tech
+- React 18 + React Router
+- TypeScript
 - Vite
+- SCSS (Sass)
+- Cypress (E2E)
 
-Questions? Comments? Feedback? Thanks for looking! 
+## Roadmap / To Do
+
+- **Stats on the About page** — show total responses and how many asked to stay
+  anonymous (`x / xx`). The API's `/stats` endpoint already returns these totals;
+  this is front-end wiring.
+- Shorten the About page and fix typos
+- Capitalization pass across copy
+- A random-response route
+- Favorites — track and surface a "most favorited" list
+- Consider an additional font
+- A login (open question — needed for what?)
